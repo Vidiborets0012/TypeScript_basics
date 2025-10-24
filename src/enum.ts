@@ -332,3 +332,85 @@ enum UserAction {
 */
 
 const allowedAction: ActionType = UserAction.Create;
+
+console.log('************************');
+console.log('************************');
+console.log('****** ЛЕКЦІЯ *****');
+
+//ЛЕКЦІЯ
+
+interface User {
+  name: string;
+  age: number;
+  // role: string; -> union type
+  role: 'admin' | 'user' | 'super';
+}
+
+const user1: User = {
+  name: 'Petya',
+  age: 33,
+  role: 'admin',
+  // role: 'user',
+  // role: 'super',
+};
+
+if (user1.role === 'admin') {
+  console.log(`${user1.name} is ${user1.role}`);
+}
+
+enum Role {
+  Admin,
+  User,
+  Super,
+}
+
+enum Role1 {
+  Admin = 'Admin',
+  User = 'User',
+  Super = 'Super',
+}
+
+const role: Role = Role.Admin;
+console.log('Role.Admin:', Role.Admin); //0;
+console.log('role:', role); //0
+
+const role1: Role1 = Role1.Admin;
+console.log('Role1.Admin:', Role1.Admin); //Admin
+console.log('role1:', role1); //Admin
+
+if (role === Role.Admin) {
+  console.log('This is admin');
+}
+
+// **********************
+const status: 200 | 201 | 400 = 200;
+
+if (status === 200) {
+  console.log('Request is success'); //Request is success
+} else if (status === 201) {
+  console.log('Request created resource');
+} else {
+  console.log('Resource is not found');
+}
+
+// enum Status1 {
+//   Success = 200,
+//   Created = 201,
+//   BadRequest = 400,
+//   NotFound = 404,
+// }
+
+// let status1: Status1 = Status1.NotFound;
+// const status2: Status1 = 404;
+// console.log(Status1.NotFound);
+// console.log(status2);
+
+// if (status1 === Status1.Success) {
+//   console.log('Request is success'); //Request is success
+// } else if (status1 === Status1.Created) {
+//   console.log('Request created resource');
+// } else if (status1 === Status1.BadRequest) {
+//   console.log('Bad Request');
+// } else if (status1 === Status1.NotFound) {
+//   console.log('Resource is not found');
+// }
