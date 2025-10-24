@@ -75,6 +75,11 @@ a {
   padding-left: 24px;
   font-size: 20px;
 }
+
+.sublist-link--display {
+  display: block;
+  padding-left: 12px;
+}
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
   .container {
