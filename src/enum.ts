@@ -414,3 +414,33 @@ if (status === 200) {
 // } else if (status1 === Status1.NotFound) {
 //   console.log('Resource is not found');
 // }
+
+enum Status1 {
+  Success = 200,
+  Created = 201,
+  BadRequest = 400,
+  NotFound = 404,
+}
+
+interface ApiResponse1 {
+  status: Status1;
+}
+
+const response1: ApiResponse1 = {
+  status: Status1.Success,
+};
+
+function message(res: ApiResponse1) {
+  switch (res.status) {
+    case Status1.Success:
+      return 'Success response';
+    case Status1.Created:
+      return 'Recourse created';
+    case Status1.BadRequest:
+      return 'Bad request';
+    case Status1.NotFound:
+      return 'Recourse not found';
+  }
+}
+
+console.log(message(response1)); //Success response
